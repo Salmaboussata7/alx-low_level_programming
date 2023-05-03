@@ -3,7 +3,7 @@
 
 /**
  * insert_nodeint_at_index - Insert a new node at a given position.
- * @head:The head node of the list.
+ * @head: address the head node of the list.
  * @idx: Position of the new node to be inserted in.
  * @n: Data of the new node.
  * Return: Address of the new node.
