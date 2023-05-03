@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 /**
- * add_nodeint_end - Adds a new node at the end of a listint_t list.
+ * add_nodeint_end - Add a new node at the end of a list.
  * @head: Address of the first node of a list.
- * @n: integer to be added to the new node.
+ * @n: Integer to insert in the new node.
  * Return: Address of the new node.
  **/
 listint_t *add_nodeint_end(listint_t **head, const int n)
