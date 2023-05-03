@@ -3,7 +3,7 @@
 
 /**
  * insert_nodeint_at_index - Insert a new node at a given position.
- * @head: address the head node of the list.
+ * @head: First node address.
  * @idx: Position of the new node to be inserted in.
  * @n: Data of the new node.
  * Return: Address of the new node.
@@ -16,7 +16,7 @@ unsigned int i = 0;
 
 if (*head == NULL && idx != 0)
 return (NULL);
-if (idx != 0
+if (idx != 0)
 {
 temp = *head;
 for (; i < idx - 1 && temp != NULL; i++)
