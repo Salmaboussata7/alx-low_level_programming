@@ -17,8 +17,8 @@ tmp = *head;
 while (tmp)
 {
 next = tmp->next;
- free(tmp);
- tmp = next;
-    }
-  *head = 0;
+free(tmp);
+tmp = next;
+}
+*head = 0;
 }
