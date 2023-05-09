@@ -1,52 +1,35 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
+#include "main.h"
 
 /**
- * read_file - reads a file and outputs its contents to stdout
- * @filename: the name of the file to read
+ * read_textfile - reads a file and outputs its contents to stdout
+ * @filename:  the name of the file to read
  * @letters: the number of letters to read from the file
- *
  * Return: the number of letters read and printed
  */
-ssize_t read_file(const char *filename, size_t letters)
+
+ssize_t read_textfile(const char *filename, size_t letters)
 {
-int fd;
-char *buf;
-ssize_t rd, wr;
+register int _open, _read, _write;
+register char *buffer = malloc(sizeof(char)  * letters);
 
-if (!filename)
-return (0);
-
-fd = open(filename, O_RDONLY);
-if (fd == -1)
-return (0);
-
-buf = malloc(letters);
-if (!buf)
+if (!(buffer))
 {
-close(fd);
+free(buffer);
 return (0);
 }
-
-rd = read(fd, buf, letters);
-if (rd == -1)
+if (!(filename))
 {
-free(buf);
-close(fd);
 return (0);
 }
-
-wr = write(STDOUT_FILENO, buf, rd);
-if (wr == -1)
+_open = open(filename, O_RDONLY);
+_read = read(_open, buffer, letters);
+_write = write(STDOUT_FILENO, buffer, _read);
+if (_open == -1 || _read == -1 || _write == -1 || !(_write == _read))
 {
-free(buf);
-close(fd);
+free(buffer);
 return (0);
 }
-
-free(buf);
-close(fd);
-return (wr);
+free(buffer);
+close(_open);
+return (_write);
 }
